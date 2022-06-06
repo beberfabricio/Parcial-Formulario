@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #bfbfeb;
+    background-image:  radial-gradient(#000000 0.9500000000000001px, transparent 0.9500000000000001px), radial-gradient(#000000 0.9500000000000001px, #bfbfeb 0.9500000000000001px);
+    background-size: 38px 38px;
+    background-position: 0 0,19px 19px;
+    display:flex;
+    min-height: 100vh;
+}
+
+h2{
+    font-size: 15px;
+    font-weight: bold;
+    color:#5757577e;
+    margin: 6px;
+}
+
+.hidden{
+    display:none;
+}
+
+.form{
+    background-color: #fff;
+    margin:auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px;
+    text-align: center;
+}
+
+.form-title{
+    font-size: 2rem;
+    margin-bottom: .5em;
+    font-weight: 700;
+}
+
+.form-container{
+    margin-top: 3em;
+    display:grid;
+    gap:2.5em;
+}
+
+.form-group{
+    position:relative;
+    --color: #5757577e;
+}
+
+.form-txt{
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: .3em .2em;
+    border:none;
+    outline:none;
+    border-bottom: 1px solid var(--color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-txt:focus + .form-lblTxt, .form-txt:not(:placeholder-shown) + .form-lblTxt{
+    transform: translateY(-13px);
+    transform-origin: left top;
+    color: #3866f2;
+}
+
+.form-lblTxt{
+    color: var(--color);
+    position:absolute;
+    font-size: 15px;
+    top:0;
+    left:5px;
+    font-weight: bold;
+    transform: translateY(9px);
+    transform-origin: left bottom;
+    transition: transform .5s, color .3s;
+}
+
+.form-btn{
+    background-color: #3866f2;
+    color:#fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border:none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+
+.form-groupSelec{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.form-lblSelec{
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.form-select{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding: 2px;
+}

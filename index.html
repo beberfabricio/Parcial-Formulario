@@ -11,66 +11,90 @@
         <title>Registro</title>
     </head>
     <body>
-        <form>
-            <fieldset>
-                <label for="txtNombre">Nombre:</label>
-                <input type="text" id="txtNombre" placeholder="Nombre">
-                <span>Ingrese al menos 4 letras</span>
-            </fieldset>
-            <fieldset>
-                <label for="txtApellido">Apellido:</label>
-                <input type="text" id="txtApellido" placeholder="Apellido">
-                <span>Ingrese al menos 4 letras</span>
-            </fieldset>
-            <fieldset>
-                <label for="txtEmail">E-mail:</label>
-                <input type="text" id="txtEmail" placeholder="E-mail">
-                <span>Ingrese un email válido</span>
-            </fieldset>
-            <fieldset>
-                <label for="txtEdad">Edad:</label>
-                <input type="text" id="txtEdad" placeholder="Edad">
-                <span>Ingrese una edad válida</span>
-            </fieldset>
-            <fieldset>
-                <label for="rbSexo">Sexo:</label>
-                <input type="radio" name="rbSexo" id="rbSexoM">
-                <label for="rbSexoM">Mujer</label>
-                <input type="radio" name="rbSexo" id="rbSexoH">
-                <label for="rbSexoH">Hombre</label>
-                <input type="radio" name="rbSexo" id="rbSexoO">
-                <label for="rbSexoO">Otro</label>
-                <span>Debe seleccionar un sexo válido</span>
-            </fieldset>
-            <fieldset>
-                <label for="cbTemas">Temas de interés:</label>
-                <input type="checkbox" name="cbTemas" id="cbTemasDeporte">
-                <label for="cbTemasDeporte">Deporte</label>
-                <input type="checkbox" name="cbTemas" id="cbTemasMusica">
-                <label for="cbTemasMusica">Música</label>
-                <input type="checkbox" name="cbTemas" id="cbTemasJuegos">
-                <label for="cbTemasJuegos">Juegos</label>
-                <input type="checkbox" name="cbTemas" id="cbTemasTecnologia">
-                <label for="cbTemasTecnologia">Tecnología</label>
-                <input type="checkbox" name="cbTemas" id="cbTemasOtros">
-                <label for="cbTemasOtros">Otros</label>
-                <span>Debe seleccionar al menos un tema</span>
-            </fieldset>
-            <fieldset>
-                <label for="cmbPaises">País:</label>
-                <select id="cmbPaises">
-                    <option value="cmbPaisesSelec">Seleccione un pais</option>
-                    <option value="cmbPaisesArg">Argentina</option>
-                    <option value="cmbPaisesChi">Chile</option>
-                    <option value="cmbPaisesBra">Brasil</option>
-                    <option value="cmbPaisesUru">Uruguay</option>
-                </select>
-                <span>Debe seleccionar un país</span>
-            </fieldset>
-            <fieldset>
-                <label for="txtComentarios">Comentarios:</label>
-                <textarea id="txtComentarios" cols="30" rows="3"></textarea>
-            </fieldset>
+        <form class="form">
+            <h1 class="form-title">Registrarse</h1>
+            <div class="form-container">
+                <fieldset class="form-group">
+                    <input class="form-txt" type="text" id="txtNombre" placeholder=" ">
+                    <label class="form-lblTxt" for="txtNombre">Nombre</label>                    
+                    <span class="hidden">Ingrese al menos 4 letras</span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input class="form-txt" type="text" id="txtApellido" placeholder=" ">
+                    <label class="form-lblTxt" for="txtApellido">Apellido</label>
+                    <span class="hidden">Ingrese al menos 4 letras</span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input class="form-txt" type="text" id="txtEmail" placeholder=" ">
+                    <label class="form-lblTxt" for="txtEmail">E-mail</label>
+                    <span class="hidden">Ingrese un email válido</span>
+                </fieldset>
+                <fieldset class="form-group"> 
+                    <input class="form-txt" type="text" id="txtEdad" placeholder=" ">
+                    <label class="form-lblTxt" for="txtEdad">Edad</label>
+                    <span class="hidden">Ingrese una edad válida</span>
+                </fieldset>
+                <fieldset class="form-groupSelec">
+                    <h2>Sexo</h2>
+                    
+                    <label class="form-lblSelec" for="rbSexoM">
+                        <input class="form-rb" type="radio" name="rbSexo" id="rbSexoM">Mujer
+                    </label>
+
+                    
+                    <label class="form-lblSelec" for="rbSexoH">
+                        <input class="form-rb" type="radio" name="rbSexo" id="rbSexoH">Hombre
+                    </label>
+                    
+                    <label class="form-lblSelec" for="rbSexoO">
+                        <input class="form-rb" type="radio" name="rbSexo" id="rbSexoO">Otro
+                    </label>
+                    <span class="hidden">Debe seleccionar un sexo válido</span>
+                </fieldset>
+                <fieldset class="form-groupSelec">
+                    <h2>Temas de interés</h2>
+                    
+                    <label class="form-lblSelec" for="cbTemasDeporte">
+                        <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasDeporte">Deporte
+                    </label>
+
+                    
+                    <label class="form-lblSelec" for="cbTemasMusica">
+                        <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasMusica">Música
+                    </label>
+
+                    
+                    <label class="form-lblSelec" for="cbTemasJuegos">
+                        <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasJuegos">Juegos
+                    </label>
+
+                    
+                    <label class="form-lblSelec" for="cbTemasTecnologia">
+                        <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasTecnologia">Tecnología
+                    </label>
+                    
+                    <label class="form-lblSelec" for="cbTemasOtros">
+                        <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasOtros">Otros
+                    </label>
+                    <span class="hidden">Debe seleccionar al menos un tema</span>
+                </fieldset>
+                <fieldset class="form-groupSelec">
+                    <h2>País</h2>
+                    <select class="form-select" id="cmbPaises">
+                        <option value="cmbPaisesSelec">Seleccionar</option>
+                        <option value="cmbPaisesArg">Argentina</option>
+                        <option value="cmbPaisesChi">Chile</option>
+                        <option value="cmbPaisesBra">Brasil</option>
+                        <option value="cmbPaisesUru">Uruguay</option>
+                    </select>
+                    <span class="hidden">Debe seleccionar un país</span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <textarea class="form-txt" id="txtComentarios" cols="30" rows="3" placeholder=" "></textarea>
+                    <label class="form-lblTxt" for="txtComentarios">Comentarios</label>
+                </fieldset>
+                <input class= "form-btn" type="submit" value="Aceptar">
+            </div>
         </form>
     </body>
 </html>
