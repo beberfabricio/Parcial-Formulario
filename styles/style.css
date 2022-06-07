@@ -113,7 +113,9 @@ body{
 }
 
 .form-lblError{
+    width: 100%;
     color:red;
+    text-align: center;
 }
 
 .form-btn{
@@ -145,6 +147,7 @@ body{
 
 .form-select{
     width: 100%;
+    margin-bottom: 8px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     padding: 2px;
