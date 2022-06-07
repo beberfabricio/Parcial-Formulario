@@ -11,75 +11,66 @@
         <title>Registro</title>
     </head>
     <body>
+        <header class="header">
+            <h1>Formulario</h1>
+        </header>
         <form class="form">
-            <h1 class="form-title">Registrarse</h1>
+            <h2 class="form-title">Registrarse</h1>
             <div class="form-container">
                 <fieldset class="form-group">
                     <input class="form-txt" type="text" id="txtNombre" placeholder=" ">
                     <label class="form-lblTxt" for="txtNombre">Nombre</label>                    
-                    <span class="hidden">Ingrese al menos 4 letras</span>
+                    <label class="form-lblError hidden" for="txtNombre">Ingrese al menos 3 letras</label>
                 </fieldset>
                 <fieldset class="form-group">
                     <input class="form-txt" type="text" id="txtApellido" placeholder=" ">
                     <label class="form-lblTxt" for="txtApellido">Apellido</label>
-                    <span class="hidden">Ingrese al menos 4 letras</span>
+                    <label class="form-lblError hidden" for="txtApellido">Ingrese al menos 3 letras</label>
                 </fieldset>
                 <fieldset class="form-group">
                     <input class="form-txt" type="text" id="txtEmail" placeholder=" ">
                     <label class="form-lblTxt" for="txtEmail">E-mail</label>
-                    <span class="hidden">Ingrese un email válido</span>
+                    <label class="form-lblError hidden" for="txtEmail">Ingrese un email válido</label>
                 </fieldset>
                 <fieldset class="form-group"> 
                     <input class="form-txt" type="text" id="txtEdad" placeholder=" ">
                     <label class="form-lblTxt" for="txtEdad">Edad</label>
-                    <span class="hidden">Ingrese una edad válida</span>
+                    <label class="form-lblError hidden" for="txtEdad">Ingrese una edad válida</label>
                 </fieldset>
                 <fieldset class="form-groupSelec">
-                    <h2>Sexo</h2>
-                    
+                    <h3>Sexo</h3>
                     <label class="form-lblSelec" for="rbSexoM">
                         <input class="form-rb" type="radio" name="rbSexo" id="rbSexoM">Mujer
                     </label>
-
-                    
                     <label class="form-lblSelec" for="rbSexoH">
                         <input class="form-rb" type="radio" name="rbSexo" id="rbSexoH">Hombre
                     </label>
-                    
                     <label class="form-lblSelec" for="rbSexoO">
                         <input class="form-rb" type="radio" name="rbSexo" id="rbSexoO">Otro
                     </label>
-                    <span class="hidden">Debe seleccionar un sexo válido</span>
+                    <label class="form-lblError hidden" id="lblErrorS">Debe seleccionar un sexo válido</label>
                 </fieldset>
                 <fieldset class="form-groupSelec">
-                    <h2>Temas de interés</h2>
-                    
+                    <h3>Temas de interés</h3>              
                     <label class="form-lblSelec" for="cbTemasDeporte">
                         <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasDeporte">Deporte
                     </label>
-
-                    
                     <label class="form-lblSelec" for="cbTemasMusica">
                         <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasMusica">Música
                     </label>
-
-                    
                     <label class="form-lblSelec" for="cbTemasJuegos">
                         <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasJuegos">Juegos
                     </label>
-
-                    
                     <label class="form-lblSelec" for="cbTemasTecnologia">
                         <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasTecnologia">Tecnología
                     </label>
-                    
                     <label class="form-lblSelec" for="cbTemasOtros">
                         <input class="form-chk" type="checkbox" name="cbTemas" id="cbTemasOtros">Otros
                     </label>
-                    <span class="hidden">Debe seleccionar al menos un tema</span>
+                    <label class="form-lblError hidden">Debe seleccionar al menos un tema</label>
                 </fieldset>
                 <fieldset class="form-groupSelec">
-                    <h2>País</h2>
+                    <h3>País</h3>
                     <select class="form-select" id="cmbPaises">
                         <option value="cmbPaisesSelec">Seleccionar</option>
                         <option value="cmbPaisesArg">Argentina</option>
@@ -87,14 +78,19 @@
                         <option value="cmbPaisesBra">Brasil</option>
                         <option value="cmbPaisesUru">Uruguay</option>
                     </select>
-                    <span class="hidden">Debe seleccionar un país</span>
+                    <label class="form-lblError hidden">Debe seleccionar un país</label>
                 </fieldset>
                 <fieldset class="form-group">
                     <textarea class="form-txt" id="txtComentarios" cols="30" rows="3" placeholder=" "></textarea>
                     <label class="form-lblTxt" for="txtComentarios">Comentarios</label>
                 </fieldset>
-                <input class= "form-btn" type="submit" value="Aceptar">
+                <input class= "form-btn" type="submit" value="Aceptar" id="btnAceptar">
             </div>
         </form>
+        <footer class="footer">
+            <p>
+                Primer Parcial LPPA ISI UAI (Universidad Abierta Interamericana) 2022
+            </p>
+        </footer>
     </body>
 </html>
