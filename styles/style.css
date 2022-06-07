@@ -63,6 +63,7 @@ body{
 .footer p{
     font-weight: 700;
     font-style: oblique;
+    text-align: center;
 }
 
 .hidden{
