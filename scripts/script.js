@@ -1,12 +1,12 @@
 window.onload = () => {
-    removerLabelTxt(document.querySelectorAll("input[type=text]"));
-    removerLabelRadio(document.querySelectorAll("input[type=radio]"));
-    removerLabelCheck(document.querySelectorAll("input[type=checkbox]"));
-    removerLabelPais(document.getElementById("cmbPaises"));
     document.getElementById("btnAceptar").addEventListener("click", function (e) {
         e.preventDefault();
         validarCampos();
       });
+    removerLabelTxt(document.querySelectorAll("input[type=text]"));
+    removerLabelRadio(document.querySelectorAll("input[type=radio]"));
+    removerLabelCheck(document.querySelectorAll("input[type=checkbox]"));
+    removerLabelPais(document.getElementById("cmbPaises"));
 }
 
 function validarCampos() {

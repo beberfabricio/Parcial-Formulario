@@ -17,16 +17,38 @@ body{
 .header{
     width: 100%;
     height: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-bottom: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: rgb(159, 159, 235, 0.8);
 }
 
 .header h1{
     font-weight: 700;
-    font-size: 70px;
+    font-size: 40px;
+    color:white;
+}
+
+.header .navbar{
+    display:inherit;
+    justify-content: flex-end;
+    width: 500px;
+}
+
+.header .navbar a{
+    display:none;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 22px;
+    color:black;
+}
+
+.header .navbar i{
+    font-size: 30px;
+    color:white;
 }
 
 .footer{
@@ -151,4 +173,36 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     padding: 2px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .header h1{
+        font-size: 70px;
+    }
+    .header .navbar{
+        justify-content: space-around;
+    }
+    .header .navbar a{
+        display:block;
+    }
+    .header .navbar i{
+        display:none;
+    }
+    .form{
+        max-width: 800px;
+    }
+    .form-container{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .form-btn{
+        width: 100%;
+    }
+    .form-groupSelec{
+        width: 47%;
+    }
+    .form-group{
+        width: 47%;
+    }
 }
