@@ -97,26 +97,29 @@ textarea{
     background-color: #fff;
     border-radius: 10px;
     padding: 48px 40px;
-    display:grid;
-    gap:1em;
-    place-items: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .modal-title{
     font-size: 40px;
     font-weight: 700;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .modal-text{
     text-align: center;
-    margin-bottom: 10px;
     font-weight: 600;
+    margin-bottom: 25px;
 }
 
 .modal-img{
     width: 70%;
     max-width: 300px;
+    margin-bottom: 15px;
 }
 
 .modal-close{
@@ -129,6 +132,7 @@ textarea{
     display:inline-block;
     font-weight: 300;
     transition: background-color .3s;
+    cursor: pointer;
 }
 
 .modal-close:hover{
@@ -159,12 +163,14 @@ textarea{
 
 .form-container{
     margin-top: 50px;
-    display:grid;
-    gap:2.5em;
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .form-group{
+    width: 100%;
     position:relative;
+    margin-bottom: 30px;
 }
 
 .form h3{
@@ -211,6 +217,7 @@ textarea{
 }
 
 .form-btn{
+    width: 100%;
     background-color: var(--color);
     color:#fff;
     font-family: 'Roboto', sans-serif;
@@ -229,11 +236,13 @@ textarea{
 }
 
 .form-groupSelec{
+    width: 100%;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-bottom: 30px;
 }
 
 .form-lblSelec{
