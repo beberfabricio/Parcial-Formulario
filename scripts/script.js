@@ -1,101 +1,94 @@
+function llenarVariables() {
+    submit = document.getElementById("btnEnviar");
+    modal = document.getElementById("sctModal");
+    modalClose = document.getElementById("btnModalC");
+    modalpName = document.getElementsByClassName("modal-pName")[0];
+    nombre = document.getElementById("txtNombre");
+    apellido = document.getElementById("txtApellido");
+    email = document.getElementById("txtEmail");
+    edad = document.getElementById("txtEdad");
+    sexo = document.getElementsByName("rbSexo");
+    temas = document.getElementsByName("cbTemas");
+    pais = document.getElementById("cmbPaises");
+    errorS = document.getElementById("lblErrorS");
+    errorT = document.getElementById("lblErrorT");
+    errorP = document.getElementById("lblErrorP");
+    textList = document.querySelectorAll("input[type=text]");
+    radioList = document.querySelectorAll("input[type=radio]");
+    checkList = document.querySelectorAll("input[type=checkbox]");
+}
+
 window.onload = () => {
-    document.getElementById("btnAceptar").onclick = function (e) {
+    llenarVariables(); //cuando inicia la web, carga los elementos del HTML en las variables
+    submit.onclick = function (e) { //cuando se presiona el boton enviar, realiza lo siguiente:
         e.preventDefault();
-        if (validarCampos() == true) {
-            document.getElementById("sctModal").classList.add("modal-show");
-            document.getElementById("btnModalC").onclick = function(){
-                document.getElementById("sctModal").classList.remove("modal-show");
+        if (validarCampos() == true) { //ejecuta la funcion validarCampos, en caso de estar correctos, ejecuta el if
+            modalpName.innerText = nombre.value.concat(" ", apellido.value); //envia nombre y apellido registrados al modal
+            modal.classList.add("modal-show"); //muestra el modal
+            modalClose.onclick = function(){ //cuando se presiona el boton cerrar del modal
+                modal.classList.remove("modal-show"); //cierra el modal
             };
         } else {
-            window.alert("Hay errores en al menos un campo.");
+            window.alert("Hay errores en al menos un campo."); //si hay algun campo mal, muestra el alert
         }
     }
-    removerLabelTxt(document.querySelectorAll("input[type=text]"));
-    removerLabelRadio(document.querySelectorAll("input[type=radio]"));
-    removerLabelCheck(document.querySelectorAll("input[type=checkbox]"));
-    removerLabelPais(document.getElementById("cmbPaises"));
+    ocultarLabels();//ejecuta la funcion que se encarga de ocultar los labels de error
 }
 
 function validarCampos() {
-    var validate = true;
-    validate = validarNombreApellido(document.getElementById("txtNombre"),validate);
-    validate = validarNombreApellido(document.getElementById("txtApellido"),validate);
-    validate = validarEmail(document.getElementById("txtEmail"),validate);
-    validate = validarEdad(document.getElementById("txtEdad"),validate);
-    validate = validarSexo(document.getElementsByName("rbSexo"),validate);
-    validate = validarTemas(document.getElementsByName("cbTemas"),validate);
-    validate = validarPais(document.getElementById("cmbPaises"),validate);
+    validate = true;
+    if (nombre.value.length < 3) { //se valida que el nombre tenga al menos 3 caracteres
+        nombre.labels[1].classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (apellido.value.length < 3) { //se valida que el apellido tenga al menos 3 caracteres
+        apellido.labels[1].classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (!email.value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)) { //se valida que el email tenga formato valido
+        email.labels[1].classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (isNaN(parseInt(edad.value)) || parseInt(edad.value) > 99 || parseInt(edad.value) < 1) { //se valida que la edad sea >0 <100 !=NaN
+        edad.labels[1].classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (sexo[0].checked == false && sexo[1].checked == false && sexo[2].checked == false) { //se valida que haya sexo seleccionado
+        errorS.classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (temas[0].checked == false && temas[1].checked == false && temas[2].checked == false && 
+        temas[3].checked == false && temas[4].checked == false) { //se valida que haya al menos un tema seleccionado
+        errorT.classList.toggle("hidden",false);
+        validate = false;
+    }
+    if (pais.selectedIndex == 0) { //se valida que el pais esté seleccionado
+        errorP.classList.toggle("hidden",false);
+        validate = false;
+    }
     return validate;
 }
 
-function validarNombreApellido(txt,validate) {
-    if (txt.value.length < 3) {
-        txt.labels[1].classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function validarEmail(txt,validate) {
-    if (!txt.value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)) {
-        txt.labels[1].classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function validarEdad(txt,validate) {
-    if (isNaN(parseInt(txt.value)) || parseInt(txt.value) > 99 || parseInt(txt.value) < 1) {
-        txt.labels[1].classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function validarSexo(rb,validate) {
-    if (rb[0].checked == false && rb[1].checked == false && rb[2].checked == false) {
-        document.getElementById("lblErrorS").classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function validarTemas(chk,validate) {
-    if (chk[0].checked == false && chk[1].checked == false && chk[2].checked == false && chk[3].checked == false && chk[4].checked == false) {
-        document.getElementById("lblErrorT").classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function validarPais(sel,validate) {
-    if (sel.selectedIndex == 0) {
-        document.getElementById("lblErrorP").classList.toggle("hidden",false);
-        return false;
-    }else{return validate}
-}
-
-function removerLabelTxt(txt) {
-    for (let i=0; i<txt.length; i++){
-        txt[i].onfocus = function(){
-            txt[i].labels[1].classList.toggle("hidden",true)
+function ocultarLabels(){
+    for (let i=0; i<textList.length; i++){ //oculta label de cada uno de los input text cuando entra en foco
+        textList[i].onfocus = function(){
+            textList[i].labels[1].classList.toggle("hidden",true)
         }
     }
-}
 
-function removerLabelRadio(rb) {
-    for (let i=0; i<rb.length; i++){
-        rb[i].onclick = function(){
-            document.getElementById("lblErrorS").classList.toggle("hidden",true);
+    for (let i=0; i<sexo.length; i++){ //oculta label de los input radio cuando se clickea alguno
+        sexo[i].onclick = function(){
+            errorS.classList.toggle("hidden",true);
         }
     }
-}
 
-function removerLabelCheck(chk) {
-    for (let i=0; i<chk.length; i++){
-        chk[i].onclick = function(){
-            document.getElementById("lblErrorT").classList.toggle("hidden",true);
+    for (let i=0; i<temas.length; i++){ //oculta label de los input checkbox cuando se clickea alguno
+        temas[i].onclick = function(){
+            errorT.classList.toggle("hidden",true);
         }
     }
-}
 
-function removerLabelPais(sel) {
-    sel.onfocus = function(){
-        document.getElementById("lblErrorP").classList.toggle("hidden",true);
+    pais.onchange = function(){ //oculta label del pais cuando cambia
+        errorP.classList.toggle("hidden",true);
     }
 }

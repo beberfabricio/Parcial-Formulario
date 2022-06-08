@@ -104,10 +104,19 @@ textarea{
 }
 
 .modal-title{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 15px;
+}
+
+.modal-pName{
+    font-size: 25px;
+    color: var(--color);
+    font-weight: 700;
+    font-style: oblique;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .modal-text{
@@ -119,7 +128,7 @@ textarea{
 .modal-img{
     width: 70%;
     max-width: 300px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .modal-close{
