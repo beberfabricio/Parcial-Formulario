@@ -1,7 +1,15 @@
 window.onload = () => {
     document.getElementById("btnAceptar").addEventListener("click", function (e) {
+        if (validarCampos() == false) {
+            window.alert("Hay errores en al menos un campo.");
+        } else {
+           document.getElementById("sctModal").classList.add("modal-show");
+           document.getElementById("btnModalC").addEventListener("click",function(e){
+                //e.preventDefault();
+                document.getElementById("sctModal").classList.remove("modal-show");
+           });
+        }
         e.preventDefault();
-        validarCampos();
       });
     removerLabelTxt(document.querySelectorAll("input[type=text]"));
     removerLabelRadio(document.querySelectorAll("input[type=radio]"));
@@ -10,54 +18,56 @@ window.onload = () => {
 }
 
 function validarCampos() {
-    validarNombre(document.getElementById("txtNombre"));
-    validarApellido(document.getElementById("txtApellido"));
-    validarEmail(document.getElementById("txtEmail"));
-    validarEdad(document.getElementById("txtEdad"));
-    validarSexo(document.getElementsByName("rbSexo"));
-    validarTemas(document.getElementsByName("cbTemas"));
-    validarPais(document.getElementById("cmbPaises"));
+    var validate;
+    validate = validarNombreApellido(document.getElementById("txtNombre"));
+    validate = validarNombreApellido(document.getElementById("txtApellido"));
+    validate = validarEmail(document.getElementById("txtEmail"));
+    validate = validarEdad(document.getElementById("txtEdad"));
+    validate = validarSexo(document.getElementsByName("rbSexo"));
+    validate = validarTemas(document.getElementsByName("cbTemas"));
+    validate = validarPais(document.getElementById("cmbPaises"));
+    return validate;
 }
 
-function validarNombre(txt) {
+function validarNombreApellido(txt) {
     if (txt.value.length < 3) {
         txt.labels[1].classList.toggle("hidden",false);
-    }
-}
-
-function validarApellido(txt) {
-    if (txt.value.length < 3) {
-        txt.labels[1].classList.toggle("hidden",false);
+        return false;
     }
 }
 
 function validarEmail(txt) {
     if (!txt.value.match(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/)) {
         txt.labels[1].classList.toggle("hidden",false);
+        return false;
     }
 }
 
 function validarEdad(txt) {
     if (isNaN(parseInt(txt.value)) || parseInt(txt.value) > 100 || parseInt(txt.value) < 0) {
         txt.labels[1].classList.toggle("hidden",false);
+        return false;
     }
 }
 
 function validarSexo(rb) {
     if (rb[0].checked == false && rb[1].checked == false && rb[2].checked == false) {
         document.getElementById("lblErrorS").classList.toggle("hidden",false);
+        return false;
     }
 }
 
 function validarTemas(chk) {
     if (chk[0].checked == false && chk[1].checked == false && chk[2].checked == false && chk[3].checked == false && chk[4].checked == false) {
         document.getElementById("lblErrorT").classList.toggle("hidden",false);
+        return false;
     }
 }
 
 function validarPais(sel) {
     if (sel.selectedIndex == 0) {
         document.getElementById("lblErrorP").classList.toggle("hidden",false);
+        return false;
     }
 }
 
