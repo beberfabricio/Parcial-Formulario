@@ -26,8 +26,13 @@ window.onload = () => {
             modalpName.innerText = nombre.value.concat(" ", apellido.value); //envia nombre y apellido registrados al modal
             modal.classList.add("modal-show"); //muestra el modal
             modalClose.onclick = function(){ //cuando se presiona el boton cerrar del modal
-                modal.classList.remove("modal-show"); //cierra el modal
-            };
+                modal.classList.remove("modal-show"); //lo cierra
+            }
+            window.onclick = function(e) { //cuando se presiona cualquier parte fuera del modal
+                if (e.target == modal) {
+                    modal.classList.remove("modal-show"); //lo cierra
+                }
+            }
         } else {
             window.alert("Hay errores en al menos un campo."); //si hay algun campo mal, muestra el alert
         }
