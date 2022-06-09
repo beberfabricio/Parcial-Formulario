@@ -2,7 +2,7 @@ function llenarVariables() {
     submit = document.getElementById("btnEnviar");
     modal = document.getElementById("sctModal");
     modalClose = document.getElementById("btnModalC");
-    modalpName = document.getElementsByClassName("modal-pName")[0];
+    modalpName = document.getElementById("pName");
     nombre = document.getElementById("txtNombre");
     apellido = document.getElementById("txtApellido");
     email = document.getElementById("txtEmail");
